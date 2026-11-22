@@ -10,12 +10,11 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -12px rgba(0,0,0,.6);
 }
 *{box-sizing:border-box}
-html{overscroll-behavior:none}
+@media (pointer:fine){html{overscroll-behavior-y:none}}
 body{margin:0;color:var(--ink);font:17px/1.6 Nunito,system-ui,sans-serif;
   background-color:var(--paper);
   background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
   background-size:24px 24px;background-attachment:fixed}
-#main,.foot{will-change:transform}
 h1,h2,h3{font-family:Fredoka,sans-serif;font-weight:600;line-height:1.15;margin:0}
 a{color:inherit}
 button{font:inherit;color:inherit}
@@ -92,10 +91,12 @@ main{max-width:1080px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 40px}
 /* flashcards */
 .deck{max-width:680px}
 .flash{display:block;width:100%;min-height:300px;border:0;background:var(--sheet);border-radius:var(--r);box-shadow:var(--shadow);padding:34px;text-align:left;cursor:pointer;position:relative;perspective:1000px}
-.flash>span{display:flex;flex-direction:column;gap:14px;transition:opacity .2s}
-.f-back{position:absolute;inset:34px;opacity:0;pointer-events:none}
-.flash.flipped .f-front{opacity:0}
-.flash.flipped .f-back{opacity:1}
+.flash>span{display:flex;flex-direction:column;gap:14px;min-height:232px}
+.flash .f-back{display:none}
+.flash.flipped .f-front{display:none}
+.flash.flipped .f-back{display:flex;animation:fin .2s ease}
+.flash:not(.flipped) .f-front{animation:fin .2s ease}
+@keyframes fin{from{opacity:0}to{opacity:1}}
 .f-code{font-weight:800;color:var(--mute)}
 .f-text{font-family:Fredoka,sans-serif;font-weight:500;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.25}
 .f-hint{color:var(--mute);font-size:.9rem;margin-top:auto}

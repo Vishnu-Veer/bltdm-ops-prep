@@ -291,25 +291,32 @@ document.addEventListener("pointerover", e => { if (e.pointerType === "touch") r
 document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) showTipFor(el); });
 ["scroll", "pointerdown", "keydown", "focusout"].forEach(ev => addEventListener(ev, hideTip, true));
 
-/* ---------- edge bounce ---------- */
+/* ---------- edge bounce ----------
+   Mouse/trackpad only: phones already bounce natively, and doing both made the page shake.
+   One bounce per scroll gesture, so trackpad momentum can't keep re-triggering it. */
 (() => {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(pointer: coarse)").matches) return;
   const els = [$("#main"), document.querySelector(".foot")];
-  let off = 0, raf = null, touchY = null;
+  let off = 0, raf = null, busy = false, quietT = null;
   const atTop = () => scrollY <= 0, atBot = () => innerHeight + scrollY >= document.documentElement.scrollHeight - 1;
   const paint = () => els.forEach(e => e.style.transform = off ? `translateY(${off}px)` : "");
-  const spring = () => { cancelAnimationFrame(raf); const step = () => { off *= 0.82; if (Math.abs(off) < 0.5) off = 0; paint(); if (off) raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
-  const pull = d => { off = Math.max(-70, Math.min(70, off + d * 0.35 * (1 - Math.abs(off) / 80))); paint(); };
-  let wheelT;
+  const animate = target => {
+    cancelAnimationFrame(raf);
+    const t0 = performance.now();
+    const step = now => {
+      const t = Math.min(1, (now - t0) / 420);
+      off = target * Math.sin(Math.PI * t) * (1 - t * 0.3);
+      if (t >= 1) off = 0;
+      paint();
+      if (t < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+  };
   addEventListener("wheel", e => {
-    if ((e.deltaY < 0 && atTop()) || (e.deltaY > 0 && atBot())) { pull(-e.deltaY * 0.4); clearTimeout(wheelT); wheelT = setTimeout(spring, 90); }
+    clearTimeout(quietT); quietT = setTimeout(() => { busy = false; }, 250);
+    if (busy) return;
+    if ((e.deltaY < 0 && atTop()) || (e.deltaY > 0 && atBot())) { busy = true; animate(e.deltaY < 0 ? 18 : -18); }
   }, { passive: true });
-  addEventListener("touchstart", e => { touchY = e.touches[0].clientY; }, { passive: true });
-  addEventListener("touchmove", e => {
-    const y = e.touches[0].clientY, d = y - touchY; touchY = y;
-    if ((d > 0 && atTop()) || (d < 0 && atBot())) pull(d);
-  }, { passive: true });
-  addEventListener("touchend", spring, { passive: true });
 })();
 
 /* ---------- start ---------- */
