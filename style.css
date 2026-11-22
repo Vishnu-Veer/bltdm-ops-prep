@@ -247,3 +247,31 @@ main{padding:22px clamp(16px,4vw,48px) 40px;min-width:0}
 /* installed app: keep content below the iPhone status bar */
 main{padding-top:calc(22px + env(safe-area-inset-top))}
 .l-top{padding-top:calc(22px + env(safe-area-inset-top))}
+
+/* ---------- vocab + PI guide ---------- */
+.deftxt{font-family:Nunito,sans-serif;font-weight:700;font-size:1.12rem;line-height:1.5}
+.say+.say{margin-top:12px;padding-top:12px}
+.vtools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.search{flex:1;min-width:220px;display:flex;align-items:center;gap:10px;border:2px solid var(--line2);border-radius:14px;padding:0 14px;background:var(--sheet)}
+.search svg{color:var(--mute);width:20px;height:20px}
+.search input{flex:1;border:0;background:none;font:inherit;font-weight:700;color:var(--ink);padding:11px 0;outline:none;min-width:0}
+.search:focus-within{border-color:var(--mintFill)}
+.vcount{margin:6px 0 10px;font-weight:700}
+.vocab{margin:0;max-width:820px}
+.vrow{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:14px 0;border-top:2px solid var(--line)}
+.vrow dt{font-family:Fredoka,sans-serif;font-weight:600;font-size:1.1rem}
+.vrow dd{margin:0;color:var(--mute)}
+.vpis{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.vpi{font-size:.75rem;font-weight:900;border:2px solid var(--line2);border-radius:7px;padding:0 6px;color:var(--mute)}
+.pidet summary{list-style:none;cursor:pointer}
+.pidet summary::-webkit-details-marker{display:none}
+.pidet summary:hover .t{color:var(--mint)}
+[data-theme=dark] .pidet summary:hover .t{color:var(--good)}
+.pidet[open] summary .t{font-weight:800}
+.pimore{padding:4px 4px 16px 112px;max-width:780px}
+.pimore p{margin:8px 0 0}
+.pimore b{display:block;font-family:Courgette,cursive;font-weight:400;color:var(--rose)}
+@media (max-width:720px){
+  .vrow{grid-template-columns:1fr;gap:2px}
+  .pimore{padding-left:4px}
+}

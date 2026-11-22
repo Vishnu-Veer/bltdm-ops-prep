@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 DEVICE=${1:-00008150-00161DEE2112401C}
 TEAM=${TEAM:-G6395A74Q7}
 BUILD=/tmp/bltdmprep-device
-for f in index.html style.css data.js app.js favicon.svg accessibility.html; do cp "../$f" "BLTDMPrep/$f"; done
+for f in index.html style.css data.js guide.js app.js favicon.svg accessibility.html; do cp "../$f" "BLTDMPrep/$f"; done
 xcodebuild -project BLTDMPrep.xcodeproj -scheme BLTDMPrep -configuration Release -destination "id=$DEVICE" \
   -derivedDataPath "$BUILD" -allowProvisioningUpdates DEVELOPMENT_TEAM="$TEAM" build > "$BUILD.log" 2>&1 \
   || { grep -E "error:" "$BUILD.log" | head; echo "Build failed (full log: $BUILD.log)"; exit 1; }
