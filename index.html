@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BLTDM Ops Prep · Practice cases, flashcards and PIs</title>
+<meta name="description" content="Study site for DECA Business Law and Ethics Team Decision Making, Operations: practice cases with a prep timer, flashcards, a quiz and all 64 official Operations PIs.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="#case" data-tip="Back to the practice case">BLTDM <span>ops prep</span></a>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#case" data-tip="Draw a random case and run the timer">Practice case</a>
+    <a href="#cards" data-tip="Flip through every Operations PI">Flashcards</a>
+    <a href="#quiz" data-tip="Quick 10-question quiz on the PIs">Quiz</a>
+    <a href="#pis" data-tip="All 64 PIs, tick the ones you know">PI checklist</a>
+    <a href="#plan" data-tip="The 5-step way to answer any case">Game plan</a>
+  </nav>
+  <button class="theme" id="theme" aria-label="Switch light or dark mode" data-tip="Switch light or dark mode">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+</header>
+
+<main id="main">
+
+<!-- PRACTICE CASE -->
+<section class="view" id="v-case" aria-labelledby="h-case">
+  <div class="intro">
+    <h1 id="h-case">Draw a case. Beat the clock.</h1>
+    <p>Every case is a business with an operations problem that also has a legal or ethical catch. You get 7 PIs. Tick each one off as you cover it, just like the judge will.</p>
+  </div>
+
+  <div class="caseWrap">
+    <article class="casefile" id="casefile" aria-live="polite">
+      <div class="cf-head">
+        <div>
+          <p class="cf-role" id="cfRole"></p>
+          <h2 class="cf-co" id="cfCo"></h2>
+        </div>
+        <p class="cf-no" id="cfNo"></p>
+      </div>
+      <p class="cf-sit" id="cfSit"></p>
+      <p class="cf-ask" id="cfAsk"></p>
+      <h3 class="cf-pih">Performance indicators</h3>
+      <ol class="cf-pis" id="cfPis"></ol>
+      <p class="cf-score" id="cfScore"></p>
+    </article>
+
+    <aside class="side">
+      <div class="timer" role="timer" aria-live="off">
+        <p class="t-phase" id="tPhase">Prep time</p>
+        <p class="t-num" id="tNum">30:00</p>
+        <div class="t-bar"><i id="tBar"></i></div>
+        <div class="t-btns">
+          <button class="btn primary" id="tStart" data-tip="Start or pause the timer">Start prep</button>
+          <button class="btn" id="tReset" data-tip="Put the timer back to 30:00">Reset</button>
+        </div>
+        <p class="t-note">BLTDM gives your team 30 minutes to prep and up to 15 minutes with the judge, questions included.</p>
+      </div>
+      <button class="btn big" id="newCase" data-tip="Get a new company, problem and set of PIs">Draw a new case</button>
+      <p class="side-tip">Split the PIs: one of you takes law and safety, the other takes purchasing, quality and the plan. Both of you open and close.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="view" id="v-cards" aria-labelledby="h-cards" hidden>
+  <div class="intro">
+    <h1 id="h-cards">Flashcards</h1>
+    <p>Front shows the PI. Flip it for the plain-English version and a line you could say to the judge.</p>
+  </div>
+  <div class="filters" id="cardFilters" role="group" aria-label="Filter cards"></div>
+  <div class="deck">
+    <button class="flash" id="flash" aria-live="polite" data-tip="Click or press space to flip">
+      <span class="f-front">
+        <span class="f-code" id="fCode"></span>
+        <span class="f-text" id="fText"></span>
+        <span class="f-hint">Tap to flip</span>
+      </span>
+      <span class="f-back">
+        <span class="f-say-h">Say something like</span>
+        <span class="f-say" id="fSay"></span>
+      </span>
+    </button>
+    <div class="deck-nav">
+      <button class="btn" id="fPrev" aria-label="Previous card" data-tip="Previous card (left arrow)">Back</button>
+      <p id="fCount"></p>
+      <button class="btn" id="fKnow" data-tip="Mark this PI as one you know">I know this</button>
+      <button class="btn primary" id="fNext" aria-label="Next card" data-tip="Next card (right arrow)">Next</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="view" id="v-quiz" aria-labelledby="h-quiz" hidden>
+  <div class="intro">
+    <h1 id="h-quiz">Which PI is the judge looking for?</h1>
+    <p>You get a line someone said in a roleplay. Pick the PI it covers. 10 questions.</p>
+  </div>
+  <div class="quiz" id="quizBox"></div>
+</section>
+
+<!-- PI CHECKLIST -->
+<section class="view" id="v-pis" aria-labelledby="h-pis" hidden>
+  <div class="intro">
+    <h1 id="h-pis">All 64 Operations PIs</h1>
+    <p>Straight from DECA's 2026–27 Business Management and Administration list. TDM only pulls from the core and cluster lists below, never pathway PIs. Tick what you know. It saves on this device.</p>
+  </div>
+  <div class="progress"><p id="pisProg"></p><div class="t-bar"><i id="pisBar"></i></div></div>
+  <div class="legend">
+    <span data-tip="Prerequisite: the easiest, basic-knowledge PIs"><b class="lv">PQ</b> basics</span>
+    <span data-tip="Career sustaining: what most employees need to know"><b class="lv">CS</b> everyday</span>
+    <span data-tip="Specialist: harder, shows up more at state and ICDC"><b class="lv sp">SP</b> specialist</span>
+  </div>
+  <div id="pisList"></div>
+</section>
+
+<!-- GAME PLAN -->
+<section class="view" id="v-plan" aria-labelledby="h-plan" hidden>
+  <div class="intro">
+    <h1 id="h-plan">The game plan for any case</h1>
+    <p>Five moves, in this order. Run them every time and you'll hit the PIs without thinking about it.</p>
+  </div>
+  <ol class="steps">
+    <li><h3>Name the problem in one sentence</h3><p>"Your cheapest supplier keeps shipping bad product, and that puts your customers and your reputation at risk."</p></li>
+    <li><h3>Explain the idea</h3><p>Most PIs start with explain, describe or discuss. Define the concept like you're teaching the owner: what a supply chain is, what quality control means, why safety rules exist.</p></li>
+    <li><h3>Bring the law</h3><p>Name real things: OSHA for workplace safety, contracts with vendors, product liability, data privacy, the FTC. This is where Business Law and Ethics teams win points.</p></li>
+    <li><h3>Bring the ethics</h3><p>Is it fair to workers, customers and suppliers? Legal isn't always ethical. Mention a code of ethics, being honest with customers and not cutting corners to save money.</p></li>
+    <li><h3>Give the plan and how you'll measure it</h3><p>Who does what, by when, and what it costs. Then the numbers that prove it worked: defect rate, injury reports, on-time delivery, customer complaints.</p></li>
+  </ol>
+  <div class="cheat">
+    <h2>Words that make judges nod</h2>
+    <dl>
+      <dt>OSHA</dt><dd>The federal agency for workplace safety. Injuries get reported, hazards get fixed.</dd>
+      <dt>Product liability</dt><dd>A company can be sued if what it sells hurts someone.</dd>
+      <dt>Breach of contract</dt><dd>When a vendor or the business doesn't do what the contract says.</dd>
+      <dt>Due diligence</dt><dd>Checking a vendor out before you sign, not after something goes wrong.</dd>
+      <dt>Corrective action plan</dt><dd>A written fix with a deadline you give a vendor or team.</dd>
+      <dt>Total cost of ownership</dt><dd>The real cost of a choice: price plus returns, downtime and risk.</dd>
+      <dt>Just-in-time inventory</dt><dd>Ordering stock right when you need it, which saves money but breaks if suppliers are late.</dd>
+      <dt>KPI</dt><dd>The number you track to prove the plan is working.</dd>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>PIs from DECA's official 2026–27 BMA list (MBA Research). Practice cases are made up for studying, not official DECA cases.</p>
+  <p><a href="accessibility.html" data-tip="How this site works with screen readers and keyboards">Accessibility</a> · <a href="https://www.deca.org/compete/business-law-and-ethics-team-decision-making" data-tip="Open DECA's official BLTDM event page">Official BLTDM page</a></p>
+</footer>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
