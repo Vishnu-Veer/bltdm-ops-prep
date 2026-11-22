@@ -3,8 +3,7 @@
 A study site for DECA **Business Law and Ethics Team Decision Making**, focused on **Operations**.
 
 - **Practice case**: draws a made-up business problem with 7 PIs, and has a 30-minute prep timer and a 15-minute presentation timer.
-- **Flashcards**: all 64 Operations PIs, each with a plain-English line you can say to the judge.
-- **Quiz**: 10 questions that match what someone said to the PI it covers.
+- **Learn**: a lesson path through all 64 Operations PIs, with 5 question types, hearts, XP and a daily streak.
 - **PI checklist**: the full official list. What you tick saves on your device.
 - **Game plan**: the 5 steps for answering any case.
 
