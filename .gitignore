@@ -1,4 +1,6 @@
+.env
 ios/BLTDMPrep/*.html
 ios/BLTDMPrep/*.css
 ios/BLTDMPrep/*.js
 ios/BLTDMPrep/favicon.svg
+ios/BLTDMPrep/key.js

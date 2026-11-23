@@ -3,198 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BLTDM Ops Prep · Learn the Operations PIs</title>
-<meta name="description" content="Learn every DECA BLTDM Operations performance indicator with short lessons, a streak and XP, then run timed practice cases.">
-<meta name="theme-color" content="#F7FAF9">
+<title>BLTDM Ops Prep · Definitions, PIs and practice</title>
+<meta name="description" content="Study DECA BLTDM Operations: 99 definitions, all 64 Operations PIs explained, and practice that has you pick and write judge-ready responses.">
+<meta name="theme-color" content="#F4F8F7">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="BLTDM Prep">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 3.5 5.5 6 5.5 11a5.5 5.5 0 0 1-11 0c0-2.4 1.1-4 2.5-5.3.2 1.7 1 2.8 2.1 3.3C10.6 8 11.2 4.8 12 2z"/></symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2 4 13.5h6.5L9.5 22 20 9.5h-6.5L13.5 2z"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C1 8.4 3 4.5 6.8 4.5c2.2 0 3.6 1.2 5.2 3 1.6-1.8 3-3 5.2-3 3.8 0 5.8 3.9 4.4 7.2C19.5 16.4 12 21 12 21z"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8z"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M7 10V7.5a5 5 0 0 1 10 0V10h.5A1.5 1.5 0 0 1 19 11.5v8A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-8A1.5 1.5 0 0 1 6.5 10H7zm2.5 0h5V7.5a2.5 2.5 0 0 0-5 0V10z"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
-  <symbol id="i-path" viewBox="0 0 24 24"><path d="M12 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 12a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM7 9.5l-1 1.7M17 9.5l1 1.7M6 13l1 1.5M18 13l-1 1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-case" viewBox="0 0 24 24"><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6h3.5A1.5 1.5 0 0 1 21 7.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5v-11A1.5 1.5 0 0 1 4.5 6H8zm2 0h4V5h-4v1zM3 11.5h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="i-map" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 9h6M9 13h6M9 17h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7h8M8 11h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-  <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM20 20l-4.6-4.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
-
-<div class="app">
-  <nav class="rail" aria-label="Sections">
-    <a class="logo" href="#learn" data-tip="Back to your learning path">BLTDM <span>ops prep</span></a>
-    <a class="navlink" href="#learn" data-tip="Lessons that teach every PI"><svg><use href="#i-path"/></svg><span>Learn</span></a>
-    <a class="navlink" href="#case" data-tip="Draw a random case and run the timer"><svg><use href="#i-case"/></svg><span>Practice case</span></a>
-    <a class="navlink" href="#vocab" data-tip="100 operations, law and ethics terms"><svg><use href="#i-book"/></svg><span>Vocab</span></a>
-    <a class="navlink" href="#pis" data-tip="All 64 PIs on one page"><svg><use href="#i-list"/></svg><span>All PIs</span></a>
-    <a class="navlink" href="#plan" data-tip="The 5-step way to answer any case"><svg><use href="#i-map"/></svg><span>Game plan</span></a>
-    <button class="navlink themebtn" id="theme" data-tip="Switch light or dark mode"><svg><use href="#i-moon"/></svg><span>Dark mode</span></button>
+<header class="top">
+  <a class="mark" href="#practice" data-tip="Go to practice">BLTDM<i>/</i>ops</a>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#defs" data-tip="99 law, ethics and operations terms">Definitions</a>
+    <a href="#pis" data-tip="All 64 Operations PIs, explained">PIs</a>
+    <a href="#practice" data-tip="Pick the better response, or write your own and get graded">Practice</a>
   </nav>
+  <button class="themebtn" id="theme" aria-label="Switch light or dark mode" data-tip="Switch light or dark mode">
+    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+  </button>
+</header>
 
-  <main id="main">
-    <div class="statbar" aria-label="Your progress">
-      <span class="stat streak" data-tip="Days in a row you finished a lesson"><svg><use href="#i-flame"/></svg><b class="js-streak">0</b></span>
-      <span class="stat xp" data-tip="XP: 10 per lesson, +5 for no mistakes"><svg><use href="#i-bolt"/></svg><b class="js-xp">0</b></span>
-      <span class="stat learned" data-tip="PIs you've finished a lesson on"><svg><use href="#i-star"/></svg><b class="js-learned">0</b><small>/64</small></span>
+<main id="main">
+
+  <!-- DEFINITIONS -->
+  <section class="view" id="v-defs" aria-labelledby="h-defs" hidden>
+    <div class="hero">
+      <h1 id="h-defs">Definitions</h1>
+      <p>99 words that show the judge you know law, ethics and operations. Each one is tagged with the PIs it helps you hit.</p>
     </div>
-
-    <!-- LEARN -->
-    <section class="view" id="v-learn" aria-labelledby="h-learn">
-      <h1 class="sr" id="h-learn">Learn the Operations PIs</h1>
-      <div id="path" class="path"></div>
-    </section>
-
-    <!-- PRACTICE CASE -->
-    <section class="view" id="v-case" aria-labelledby="h-case" hidden>
-      <header class="pagehead">
-        <h1 id="h-case">Draw a case. Beat the clock.</h1>
-        <p>A business with an operations problem that has a legal or ethical catch. You get 7 PIs. Tick each one as you cover it, like the judge will.</p>
-      </header>
-      <article class="casefile card" aria-live="polite">
-        <div class="cf-head">
-          <div><p class="cf-role" id="cfRole"></p><h2 class="cf-co" id="cfCo"></h2></div>
-          <p class="cf-no" id="cfNo"></p>
-        </div>
-        <p class="cf-sit" id="cfSit"></p>
-        <p class="cf-ask" id="cfAsk"></p>
-        <h3 class="cf-pih">Performance indicators</h3>
-        <ol class="cf-pis" id="cfPis"></ol>
-        <p class="cf-score" id="cfScore"></p>
-      </article>
-      <div class="timer card" role="timer">
-        <div>
-          <p class="t-phase" id="tPhase">Prep time</p>
-          <p class="t-num" id="tNum">30:00</p>
-        </div>
-        <div class="t-right">
-          <div class="bar"><i id="tBar"></i></div>
-          <div class="t-btns">
-            <button class="btn primary" id="tStart" data-tip="Start or pause the timer">Start prep</button>
-            <button class="btn" id="tReset" data-tip="Put the timer back to 30:00">Reset</button>
-            <button class="btn" id="newCase" data-tip="Get a new company, problem and set of PIs">New case</button>
-          </div>
-          <p class="t-note">30 minutes to prep, then up to 15 with the judge, questions included. Split the PIs: one of you takes law and safety, the other takes purchasing, quality and the plan.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VOCAB -->
-    <section class="view" id="v-vocab" aria-labelledby="h-vocab" hidden>
-      <header class="pagehead">
-        <h1 id="h-vocab">Vocab that wins points</h1>
-        <p>Drop these words in your presentation and the judge knows you know the material. Each one shows the PIs it helps you hit.</p>
-      </header>
-      <div class="vtools">
-        <label class="search"><svg><use href="#i-search"/></svg><input id="vSearch" type="search" placeholder="Search terms, like OSHA or tariff" aria-label="Search vocab"></label>
-        <button class="btn primary" id="vPractice" data-tip="A quick lesson of 8 random vocab terms">Practice vocab</button>
-      </div>
-      <p class="vcount mute" id="vCount"></p>
-      <dl class="vocab" id="vList"></dl>
-    </section>
-
-    <!-- ALL PIS -->
-    <section class="view" id="v-pis" aria-labelledby="h-pis" hidden>
-      <header class="pagehead">
-        <h1 id="h-pis">All 64 Operations PIs</h1>
-        <p>From DECA's 2026–27 Business Management and Administration list. Team Decision Making only pulls from these two lists, never pathway PIs. Tap any PI to see what it means and how to use it in a case. A star means you've finished a lesson on it.</p>
-      </header>
-      <div class="legend">
-        <span data-tip="Prerequisite: basic knowledge"><b class="lv">PQ</b> basics</span>
-        <span data-tip="Career sustaining: what most employees need"><b class="lv">CS</b> everyday</span>
-        <span data-tip="Specialist: harder, more common at state and ICDC"><b class="lv sp">SP</b> specialist</span>
-      </div>
-      <div id="pisList"></div>
-    </section>
-
-    <!-- GAME PLAN -->
-    <section class="view" id="v-plan" aria-labelledby="h-plan" hidden>
-      <header class="pagehead">
-        <h1 id="h-plan">The game plan for any case</h1>
-        <p>Five moves, in this order. Run them every time and you'll hit the PIs without thinking about it.</p>
-      </header>
-      <ol class="steps">
-        <li><h3>Name the problem in one sentence</h3><p>"Your cheapest supplier keeps shipping bad product, and that puts your customers and your reputation at risk."</p></li>
-        <li><h3>Explain the idea</h3><p>Most PIs start with explain, describe or discuss. Define the concept like you're teaching the owner.</p></li>
-        <li><h3>Bring the law</h3><p>Name real things: OSHA, vendor contracts, product liability, data privacy, the FTC. This is where Business Law and Ethics teams win points.</p></li>
-        <li><h3>Bring the ethics</h3><p>Is it fair to workers, customers and suppliers? Legal isn't always ethical. Mention a code of ethics and not cutting corners to save money.</p></li>
-        <li><h3>Give the plan and how you'll measure it</h3><p>Who does what, by when, and what it costs. Then the numbers that prove it worked: defect rate, injury reports, on-time delivery.</p></li>
-      </ol>
-      <h2 class="cheat-h">Words that make judges nod</h2>
-      <dl class="cheat">
-        <dt>OSHA</dt><dd>The federal agency for workplace safety. Injuries get reported, hazards get fixed.</dd>
-        <dt>Product liability</dt><dd>A company can be sued if what it sells hurts someone.</dd>
-        <dt>Breach of contract</dt><dd>When a vendor or the business doesn't do what the contract says.</dd>
-        <dt>Due diligence</dt><dd>Checking a vendor out before you sign, not after something goes wrong.</dd>
-        <dt>Corrective action plan</dt><dd>A written fix with a deadline you give a vendor or team.</dd>
-        <dt>Total cost of ownership</dt><dd>The real cost of a choice: price plus returns, downtime and risk.</dd>
-        <dt>Just-in-time inventory</dt><dd>Ordering stock right when you need it. Saves money, breaks if suppliers are late.</dd>
-        <dt>KPI</dt><dd>The number you track to prove the plan is working.</dd>
-      </dl>
-    </section>
-
-    <footer class="foot">
-      <p>PIs from DECA's official 2026–27 BMA list (MBA Research). Practice cases and "say it" lines are written for studying, not official DECA material.</p>
-      <p><a href="accessibility.html">Accessibility</a> · <a href="https://www.deca.org/compete/business-law-and-ethics-team-decision-making">Official BLTDM page</a></p>
-    </footer>
-  </main>
-
-  <aside class="side" aria-label="Goals">
-    <div class="card sidecard">
-      <h2>Your progress</h2>
-      <div class="bigstats">
-        <div><b class="js-streak">0</b><span>day streak</span></div>
-        <div><b class="js-xp">0</b><span>total XP</span></div>
-        <div><b class="js-learned">0</b><span>PIs learned</span></div>
-      </div>
-      <div class="bar"><i class="js-learnbar"></i></div>
+    <div class="toolbar">
+      <label class="search"><svg viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM20 20l-4.6-4.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="dSearch" type="search" placeholder="Search, like OSHA or tariff" aria-label="Search definitions"></label>
+      <p class="count" id="dCount"></p>
     </div>
-    <div class="card sidecard" id="reviewCard" hidden>
-      <h2>Fix your mistakes</h2>
-      <p class="mute">You've missed <b id="mistakeCount">0</b> PIs. A quick review brings them back.</p>
-      <button class="btn primary wide" id="reviewBtn" data-tip="A short lesson made only of PIs you got wrong">Review mistakes</button>
-    </div>
-  </aside>
-</div>
+    <nav class="az" id="az" aria-label="Jump to letter"></nav>
+    <div id="dList"></div>
+  </section>
 
-<!-- LESSON -->
-<div class="lesson" id="lesson" hidden role="dialog" aria-modal="true" aria-label="Lesson">
-  <div class="l-top">
-    <button class="iconbtn" id="lClose" aria-label="Quit lesson" data-tip="Quit lesson (progress in this lesson is lost)"><svg><use href="#i-x"/></svg></button>
-    <div class="bar l-bar"><i id="lBar"></i></div>
-    <span class="hearts" id="lHearts" data-tip="Wrong answers cost a heart. Lose all 3 and you restart the lesson"></span>
-  </div>
-  <div class="l-body" id="lBody"></div>
-  <div class="l-foot" id="lFoot">
-    <div class="l-foot-in">
-      <div class="l-msg" id="lMsg" aria-live="assertive"></div>
-      <button class="btn primary chunky" id="lBtn" disabled>Check</button>
+  <!-- PIS -->
+  <section class="view" id="v-pis" aria-labelledby="h-pis" hidden>
+    <div class="hero">
+      <h1 id="h-pis">The 64 PIs</h1>
+      <p>Every Operations PI that can show up in BLTDM, from DECA's official 2026–27 list. Tap a tag to see what it means, how to use it and what to say.</p>
     </div>
-  </div>
-</div>
+    <div class="toolbar">
+      <div class="chips" id="piFilters" role="group" aria-label="Filter PIs by topic"></div>
+    </div>
+    <div class="tags" id="piGrid"></div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="view" id="v-practice" aria-labelledby="h-practice" hidden>
+    <h1 class="sr" id="h-practice">Practice</h1>
+    <div class="pbar">
+      <p class="score" id="pScore" data-tip="Your score this session"></p>
+      <button class="keybtn" id="keyBtn" data-tip="Set up AI grading for written answers"></button>
+    </div>
+    <div class="stage" id="stage" aria-live="polite"></div>
+  </section>
+
+  <footer class="foot">
+    <p>PIs from DECA's 2026–27 Business Management and Administration list (MBA Research). Scenarios, definitions and sample responses are written for studying, not official DECA material.</p>
+    <p><a href="accessibility.html">Accessibility</a> · <a href="https://www.deca.org/compete/business-law-and-ethics-team-decision-making">Official BLTDM page</a></p>
+  </footer>
+</main>
+
+<dialog class="sheet" id="keySheet" aria-labelledby="ksTitle">
+  <form id="keyForm">
+    <h2 id="ksTitle">AI grading</h2>
+    <p>Written answers are graded by Google's Gemini. Paste a free API key from <a href="https://aistudio.google.com/apikey">aistudio.google.com/apikey</a>. It's saved only on this device and sent only to Google.</p>
+    <label class="field"><span>Gemini API key</span><input id="keyInput" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key"></label>
+    <p class="hint">No key? Written answers still get a quick offline check for PI ideas and vocab.</p>
+    <div class="sheet-btns">
+      <button class="btn ghost" type="button" id="keyClear">Remove key</button>
+      <button class="btn" type="button" id="keyCancel">Cancel</button>
+      <button class="btn primary" type="submit">Save key</button>
+    </div>
+  </form>
+</dialog>
 
 <div class="tip" id="tip" role="tooltip" hidden></div>
-<script src="data.js?v=5"></script>
-<script src="guide.js?v=5"></script>
-<script src="app.js?v=5"></script>
-<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});</script>
+<script src="data.js?v=6"></script>
+<script src="guide.js?v=6"></script>
+<script src="practice.js?v=6"></script>
+<script src="app.js?v=6"></script>
+<script>if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});</script>
 </body>
 </html>
