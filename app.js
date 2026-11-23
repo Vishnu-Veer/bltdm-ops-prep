@@ -93,25 +93,24 @@ function paintScore() {
   const pct = tally.total ? Math.round(100 * tally.right / tally.total) : 0;
   $("#pScore").innerHTML = `<b>${tally.right}</b>/${tally.total} picked right${tally.total ? ` (${pct}%)` : ""}${tally.writes ? ` · writing avg <b>${(tally.writeSum / tally.writes).toFixed(1)}</b>/10` : ""}`;
 }
-const caseFor = code => pick(CASES.filter(c => c.op.includes(code)).concat(CASES.filter(c => c.op.includes(code)).length ? [] : CASES));
+// Every auto question uses a PI that really fits the scenario, with an answer written for that scenario.
 function makeAuto() {
-  const p = pick(PIS), c = caseFor(p[0]);
-  const offPI = pick(PIS.filter(x => x[3] !== p[3]));
-  const opts = shuffle([
-    [p[5], true, "Hits it. " + PI_INFO[p[0]][1]],
+  const c = pick(SCENARIOS), codes = Object.keys(c.fit), code = pick(codes), p = byCode[code];
+  const other = pick(codes.filter(x => x !== code));
+  const best = [c.fit[code], true, "Hits it. " + PI_INFO[code][1]];
+  const traps = shuffle([
+    [c.fit[other], false, `Good point for this case, but wrong PI. It covers ${other} (${shortPI(byCode[other][4])}).`],
+    [pick(c.shady), false, "Red flag. It ignores the law or ethics, which is the whole point of BLTDM."],
     [pick(VAGUE), false, "Too vague. There's nothing specific the judge can check off."],
-    [pick(SHADY[p[3]]), false, "Red flag. It ignores the law or ethics, which is the whole point of BLTDM."],
-    [offPI[5], false, `Solid line, wrong PI. It covers ${offPI[0]} (${shortPI(offPI[4])}).`],
-  ]).slice(0, 3);
-  if (!opts.some(o => o[1])) opts[rand(3)] = [p[5], true, "Hits it. " + PI_INFO[p[0]][1]];
-  return { kind: "pick", c, pis: [p[0]], sit: c.sit, ask: "Which response hits this PI best?", opts };
+  ]).slice(0, 2);
+  return { kind: "pick", c, pis: [code], sit: c.sit, ask: "Which response hits this PI best?", opts: shuffle([best, ...traps]) };
 }
 function makeDuel() {
   const d = pick(DUELS);
   return { kind: "pick", c: null, pis: d.pis, sit: d.sit, ask: "Which response would score higher?", opts: shuffle(d.opts) };
 }
 function makeWrite() {
-  const c = pick(CASES), pis = shuffle(c.op).slice(0, 2);
+  const c = pick(SCENARIOS), pis = shuffle(Object.keys(c.fit)).slice(0, 2);
   return { kind: "write", c, pis, sit: c.sit, ask: "Write your response. Hit both PIs." };
 }
 function nextQ() {
@@ -210,7 +209,7 @@ function offlineGrade(q, answer) {
   if (!ethics.length) fixes.push("Say why your plan is the ethical choice, not just the legal one.");
   if (!plan.length) fixes.push("Give a timeline or a number you'd track to prove it worked.");
   return { score, summary: score >= 8 ? "Strong. A judge would check off most of this." : score >= 5 ? "Decent start. Add the missing pieces below." : "Too thin for a judge. Use the fixes below.", pis,
-    strengths: [laws.length && "You brought in the law.", ethics.length && "You addressed ethics.", plan.length && "You gave a plan or a measure."].filter(Boolean), fixes, better: q.pis.map(c => byCode[c][5]).join(" "), offline: true };
+    strengths: [laws.length && "You brought in the law.", ethics.length && "You addressed ethics.", plan.length && "You gave a plan or a measure."].filter(Boolean), fixes, better: q.pis.map(c => q.c.fit[c] || byCode[c][5]).join(" "), offline: true };
 }
 async function gradeWrite() {
   const q = Q, answer = $("#wr").value.trim();

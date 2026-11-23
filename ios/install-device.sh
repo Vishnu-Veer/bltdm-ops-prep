@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 DEVICE=${1:-00008150-00161DEE2112401C}
 TEAM=${TEAM:-G6395A74Q7}
 BUILD=/tmp/bltdmprep-device
-for f in index.html style.css data.js guide.js practice.js app.js favicon.svg accessibility.html; do cp "../$f" "BLTDMPrep/$f"; done
+for f in index.html style.css data.js guide.js practice.js scenarios.js app.js favicon.svg accessibility.html; do cp "../$f" "BLTDMPrep/$f"; done
 # Your Gemini key from ../.env goes into this app build only (never into git or the public website).
 KEY=$(grep -E '^GEMINI_API_KEY=' ../.env 2>/dev/null | cut -d= -f2- | tr -d '\r\n "' || true)
 if [ -n "$KEY" ]; then
